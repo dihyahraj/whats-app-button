@@ -9,7 +9,6 @@ export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
 export const loader = async ({ request }) => {
   await authenticate.admin(request);
-
   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
 };
 
@@ -20,16 +19,18 @@ export default function App() {
     <AppProvider isEmbeddedApp apiKey={apiKey}>
       <NavMenu>
         <Link to="/app" rel="home">
-          Home
+          Overview
         </Link>
-        <Link to="/app/additional">Additional page</Link>
+        <Link to="/app/customize">
+          Customization
+        </Link>
       </NavMenu>
       <Outlet />
     </AppProvider>
   );
 }
 
-// Shopify needs Remix to catch some thrown responses, so that their headers are included in the response.
+// Baaki ErrorBoundary aur headers wala code waisa hi rahega
 export function ErrorBoundary() {
   return boundary.error(useRouteError());
 }

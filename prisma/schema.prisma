@@ -30,3 +30,36 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+
+
+// Yeh model button ki general settings save karega
+model WidgetSettings {
+  id          String    @id @default(cuid())
+  shop        String    @unique
+  isEnabled   Boolean   @default(true)
+  buttonStyle String    @default("edge")
+  position    String    @default("right")
+  color       String    @default("#00802F")
+  
+  // Yeh WidgetSettings aur Contact model ko aapas me jodta hai
+  contacts    Contact[]
+}
+
+// SAHI CODE ✅
+model Contact {
+  id           Int      @id @default(autoincrement())
+  name         String
+  subtitle     String
+  number       String
+  displayTime  String
+  startTime    String
+  endTime      String
+
+  // YEH DO LINES ADD KARNI HAIN
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  settings     WidgetSettings @relation(fields: [settingsId], references: [id])
+  settingsId   String
+}
