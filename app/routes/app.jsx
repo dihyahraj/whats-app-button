@@ -1,11 +1,23 @@
+// File: app/routes/app.jsx
+// Updated with Phone Input CSS
+
 import { Link, Outlet, useLoaderData, useRouteError } from "@remix-run/react";
 import { boundary } from "@shopify/shopify-app-remix/server";
 import { AppProvider } from "@shopify/shopify-app-remix/react";
 import { NavMenu } from "@shopify/app-bridge-react";
+
+// Polaris styles
 import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
+// Phone Number Input ke styles
+import phoneInputStyles from 'react-phone-number-input/style.css?url'; // <-- YEH NAYI LINE ADD KI HAI
+
 import { authenticate } from "../shopify.server";
 
-export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
+// Stylesheets ko app mein load karein
+export const links = () => [
+  { rel: "stylesheet", href: polarisStyles },
+  { rel: "stylesheet", href: phoneInputStyles }, // <-- YEH NAYI LINE ADD KI HAI
+];
 
 export const loader = async ({ request }) => {
   await authenticate.admin(request);
@@ -30,7 +42,7 @@ export default function App() {
   );
 }
 
-// Baaki ErrorBoundary aur headers wala code waisa hi rahega
+// ... Baaki ErrorBoundary aur headers wala code waise hi rahega
 export function ErrorBoundary() {
   return boundary.error(useRouteError());
 }

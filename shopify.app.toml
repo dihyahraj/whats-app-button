@@ -3,7 +3,7 @@
 client_id = "e4feb53b0e786ad2e4bd06375f820512"
 name = "WhatsApp Button"
 handle = "whatsapp-button-23"
-application_url = "https://representations-msgstr-headphones-accompanied.trycloudflare.com"
+application_url = "https://risks-satisfactory-preview-physicians.trycloudflare.com"
 embedded = true
 
 [build]
@@ -26,7 +26,7 @@ api_version = "2025-04"
 scopes = "write_products,write_script_tags"
 
 [auth]
-redirect_urls = ["https://representations-msgstr-headphones-accompanied.trycloudflare.com/auth/callback", "https://representations-msgstr-headphones-accompanied.trycloudflare.com/auth/shopify/callback", "https://representations-msgstr-headphones-accompanied.trycloudflare.com/api/auth/callback"]
+redirect_urls = ["https://risks-satisfactory-preview-physicians.trycloudflare.com/auth/callback", "https://risks-satisfactory-preview-physicians.trycloudflare.com/auth/shopify/callback", "https://risks-satisfactory-preview-physicians.trycloudflare.com/api/auth/callback"]
 
 [pos]
 embedded = false
